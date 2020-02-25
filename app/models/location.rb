@@ -1,4 +1,5 @@
 class Location < ApplicationRecord
    #has_many :users
+   has_many :attractions
     has_many :residents, foreign_key: :hometown_id, class_name: "User"
 end
