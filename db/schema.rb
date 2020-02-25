@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_201413) do
+ActiveRecord::Schema.define(version: 2020_02_25_225849) do
+
+  create_table "attractions", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "location_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "attraction_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "city"
@@ -26,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_201413) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "hometown_id"
   end
 
 end
